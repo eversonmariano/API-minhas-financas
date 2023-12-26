@@ -8,7 +8,10 @@ public class UsuarioResponseDTO {
     private String nome;
     private String email;
     private String foto;
+    private Date dataCadastro;
     private Date dataInativacao;
+
+
 
     public Long getId() {
         return id;
@@ -42,6 +45,14 @@ public class UsuarioResponseDTO {
         this.foto = foto;
     }
 
+    public Date getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
     public Date getDataInativacao() {
         return dataInativacao;
     }
@@ -49,4 +60,6 @@ public class UsuarioResponseDTO {
     public void setDataInativacao(Date dataInativacao) {
         this.dataInativacao = dataInativacao;
     }
+
+
 }

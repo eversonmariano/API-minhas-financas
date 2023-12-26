@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface ICRUDService<Requisicao, Resposta> {
 
-    List<Resposta> lerTodos();
-    Resposta lerPorId(Long id);
+    List<Resposta> buscarTodos();
+    Resposta buscarPorId(Long id);
     Resposta adicionar(Requisicao dto);
-    Resposta atualizar(Requisicao dto);
+    Resposta atualizar(Long id, Requisicao dto);
     void deletar(Long id);
 }
