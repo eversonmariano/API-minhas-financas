@@ -1,19 +1,31 @@
 package com.mariano.minhasfinancas.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
-
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "centrodecusto")
 public class CentroDeCusto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idCentroDeCusto")
     private Long id;
+
     @Column(nullable = false)
     private String descricao;
+
     @Column(columnDefinition = "TEXT")
     private String observacao;
 
@@ -21,10 +33,9 @@ public class CentroDeCusto {
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
 
-    @ManyToMany(mappedBy = "centrodecusto")
+    @ManyToMany(mappedBy = "centrosDeCustos")
     @JsonBackReference
     private List<Titulo> titulos;
-
 
     public Long getId() {
         return id;
@@ -65,4 +76,7 @@ public class CentroDeCusto {
     public void setTitulos(List<Titulo> titulos) {
         this.titulos = titulos;
     }
+
+
+
 }

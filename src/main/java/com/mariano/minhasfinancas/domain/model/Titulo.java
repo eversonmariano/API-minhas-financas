@@ -1,8 +1,11 @@
 package com.mariano.minhasfinancas.domain.model;
+
+
 import java.util.Date;
 import java.util.List;
 
-//import com.example.meusgastos.domain.Enum.ETipoTitulo;
+
+import com.mariano.minhasfinancas.domain.enumm.ETipoTitulo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,11 +32,11 @@ public class Titulo {
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
 
-//    private ETipoTitulo tipo;
+    private ETipoTitulo tipo;
 
-     @ManyToOne
-     @JoinColumn(name = "idCentroDeCusto")
-     private CentroDeCusto centroDeCusto;
+    // @ManyToOne
+    // @JoinColumn(name = "idCentroDeCusto")
+    // private CentroDeCusto centroDeCusto;
 
     @ManyToMany
     @JoinTable(
@@ -81,13 +84,13 @@ public class Titulo {
         this.usuario = usuario;
     }
 
-//    public ETipoTitulo getTipo() {
-//        return tipo;
-//    }
-//
-//    public void setTipo(ETipoTitulo tipo) {
-//        this.tipo = tipo;
-//    }
+    public ETipoTitulo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(ETipoTitulo tipo) {
+        this.tipo = tipo;
+    }
 
     public List<CentroDeCusto> getCentrosDeCustos() {
         return centrosDeCustos;
